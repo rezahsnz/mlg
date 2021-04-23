@@ -1,0 +1,14 @@
+[Unit]
+Description=Start yagna daemon
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Environment=PATH=/home/reza/.local/bin/
+Restart=always
+User=reza
+ExecStart=/home/reza/.local/bin/yagna service run
+
+[Install]
+WantedBy=multi-user.target
