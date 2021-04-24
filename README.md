@@ -2,7 +2,7 @@
 <h1 align="center">CNN predict services on top of Golem</h1>
 
 ## Theme
-The basic idea is to distribute popular CNNs pre-trained with ImageNet datasets across Golem provider nodes. Once we have enough images(CNNs) on the board, then we setup an HTTP REST API server that collects predict requests. At regular times, say every minute or so, a script is invoked to batch requests and have them sent to the nodes for prediction. Once the requests are fulfilled, the results are recorded on the db and ready to be queried. The whole process is depicted in the following figure.  
+The basic idea is to distribute popular CNNs pre-trained with ImageNet datasets across Golem provider nodes. Once we have enough images(CNNs) on the board, then we setup an HTTP REST API server that collects predict requests. At regular times, say every minute or so, a script is invoked to batch requests and have them sent to the nodes for prediction. Once the requests are fulfilled, the results are recorded on the db and ready to be queried.  
 
 ## Available models
 The following models are planned to be available for predction requests. Since some of them have large weight files, it make take some time to get ready to be used.  
@@ -27,9 +27,9 @@ The batching script is invoked at regular times to look for any pending requests
 
 ## Invocation
 To ask for a predicttion on some image file, one can make a simple cURL call:  
-`curl -X POST -F image=@kitten.jpg 'http://157.90.197.235/requestPrediction/[model]`  
+`curl -X POST -F image=@kitten.jpg 'http://157.90.197.235/requestPrediction/[model]'`  
 This schedules the request for prediction and a request_id is generated. The Caller can then query for the results using a call like this:  
-`http://157.90.197.235/readPrediction/[request-id]`  
+`curl -X POST 'http://157.90.197.235/readPrediction/[request-id]'`  
 A typical result for a previsouly requested prediction is either `null`(as being not picked up yet) or an array of top 5 predicted classes.  
 
 
