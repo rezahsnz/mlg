@@ -34,9 +34,18 @@ const AvailableModels = {
   'resnet152v2': {},
   'vgg16': {},
   'vgg19': {},
-  'xception': {},
-  'inception_v3': {},
-  'inception_resnet_v2': {},
+  'xception': {
+    'image_hash': '962619fd9fedd2b01d2e706c22f9404627fba0d2b5fbf24f38dcd117',
+    'classifier': 'inception_v3.xception'
+  },
+  'inception_v3': {
+    'image_hash': '962619fd9fedd2b01d2e706c22f9404627fba0d2b5fbf24f38dcd117',
+    'classifier': 'inception_v3.xception'
+  },
+  'inception_resnet_v2': {
+    'image_hash': '58b5ed0784b918f49de34107e6273a38f276b690cc39b956e3fd6935',
+    'classifier': 'inception_resnet_v2'
+  },
 }
 
 async function main(model, subnetTag, driver, network) {
