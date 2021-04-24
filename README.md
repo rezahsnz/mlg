@@ -38,7 +38,7 @@ Please note that we are having difficulty setting things up to work and this rep
 
 
 ## Demo
-[Presentation in PDF](https://siasky.net/BACpmQBkTw5Ut1wuWFa6r3xQZcQMGlf26LhE2PmpkviVAQ)
+[Presentation in PDF](https://github.com/rezahsnz/mlg/blob/main/docs/presentation.pdf)
 
 ## Refrences
 - [Golem](https://golem.network)  
