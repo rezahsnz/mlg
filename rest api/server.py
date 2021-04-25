@@ -75,14 +75,14 @@ def requestPrediction(model):
          image blob not null,
          preds text)
     ''')
-  uuid = hashlib.sha224(hex(uuid.getnode()).encode('utf-8')).hexdigest()
+  req_id = hashlib.sha224(uuid.uuid4().hex.encode('utf-8')).hexdigest()
   cursor.execute(f'insert into requests(id, model, image) values(?, ?, ?)',
-              [uuid, model, image])
+                 [req_id, model, image])
   connection.commit()
   connection.close()
   return flask.jsonify({
     'success': True,
-    'req_id': uuid    
+    'req_id': req_id    
   })
 
 @app.route('/readPrediction/<req_id>', methods=['POST', 'GET'])
@@ -101,4 +101,7 @@ def readPrediction(req_id):
   return flask.jsonify({
     'preds': preds[0] if preds else None  
   })
+
+if __name__ == '__main__':
+  app.run(debug=True)
 
