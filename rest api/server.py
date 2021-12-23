@@ -29,11 +29,14 @@ AvailableModels = [
 @app.route('/')
 def hello():
   return '''<h1 align="center">mlg: A decentralized CNN classification service based on Golem.</h1>
-            <h3>Available models:</h2>
+            <h3>Available models</h3>
               <ul>
                 <li>DenseNet121</li>
                 <li>DenseNet169</li>
-                <li>DenseNet201</li><br/>
+                <li>DenseNet201</li>
+        </ul>
+      <h3>Models under development</h3>
+        <ul>
                 <li>ResNet50</li>
                 <li>ResNet101</li>
                 <li>ResNet152</li><br/>
@@ -46,10 +49,10 @@ def hello():
                 <li>Inception_V3</li>
                 <li>Inception_ResNet_V2</li>
               </ul>
-              <p>Request a prediction using cURL:  <font color="blue">curl -X POST -F image=@kitten.jpg 'http://157.90.197.235/requestPrediction/[model]'</font> 
+              <p>Request a prediction using cURL:  <font color="blue">curl -X POST -F image=@kitten.jpg 'http://185.221.237.140/requestPrediction/[model]'</font> 
                  and then a new request key is generated for you.
               </p>
-              <p>Read the results of a previously requested input: <font color="blue">http://157.90.197.235/readPrediction/[request-id]</font>
+              <p>Read the results of a previously requested input: <font color="blue">http://185.221.237.140/readPrediction/[request-id]</font>
               </p> 
          '''
 
@@ -63,10 +66,10 @@ def requestPrediction(model):
   if model not in AvailableModels:
     return flask.jsonify({
       'success': False,
-      'reason': f'{model} is not available, available models {AvailableModels.join(", ")}'
+      'reason': f'{model} is not available, available models {AvailableModels}'
     })
   image = flask.request.files['image'].read()
-  connection = sqlite3.connect('./predict.db')
+  connection = sqlite3.connect('./pool/predict.db')
   cursor = connection.cursor()
   cursor.execute(
     '''create table if not exists requests(
@@ -92,7 +95,7 @@ def readPrediction(req_id):
       'success': False,
       'reason': 'Only HTTP GET/POST is allowed.'
     })
-  connection = sqlite3.connect('./predict.db')
+  connection = sqlite3.connect('./pool/predict.db')
   cursor = connection.cursor()  
   cursor.execute(f'select preds from requests where id = "{req_id}"')
   preds = cursor.fetchone()
@@ -104,4 +107,4 @@ def readPrediction(req_id):
 
 if __name__ == '__main__':
   app.run(debug=True)
-
+  

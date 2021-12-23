@@ -1,15 +1,18 @@
 import sqlite3
 import json
+from json import JSONDecodeError
 import base64
 import os
 import sys
 
 preds = {}
-directory = 'out/'
-for entry in os.scandir('./out'):
+for entry in os.scandir('./requestor/out'):
   if entry.path.endswith(".json") and entry.is_file():
     with open(entry.path, 'r') as f:
-      preds.update(json.load(f))
+      try:
+        preds.update(json.load(f))
+      except JSONDecodeError:
+        pass
 if not preds:
   print('Nothing to be done.')
   sys.exit()

@@ -12,17 +12,17 @@ Models = {
   'densenet121': { 
     'class': tf.keras.applications.DenseNet121,
     'preprocess': tf.keras.applications.densenet.preprocess_input,
-    'weights': './weights/densenet121_weights_tf_dim_ordering_tf_kernels.h5'
+    'weights': '/opt/weights/densenet121_weights_tf_dim_ordering_tf_kernels.h5'
   },
   'densenet169': { 
     'class': tf.keras.applications.DenseNet169,
     'preprocess': tf.keras.applications.densenet.preprocess_input,
-    'weights': './weights/densenet169_weights_tf_dim_ordering_tf_kernels.h5'
+    'weights': '/opt/weights/densenet169_weights_tf_dim_ordering_tf_kernels.h5'
   },
   'densenet201': { 
     'class': tf.keras.applications.DenseNet201,
     'preprocess': tf.keras.applications.densenet.preprocess_input,
-    'weights': './weights/densenet201_weights_tf_dim_ordering_tf_kernels.h5'
+    'weights': '/opt/weights/densenet201_weights_tf_dim_ordering_tf_kernels.h5'
   },
 }
 

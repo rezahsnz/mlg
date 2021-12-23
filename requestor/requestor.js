@@ -13,15 +13,15 @@ const { asyncWith, logUtils, range } = utils;
 
 const AvailableModels = {
   'densenet121': {
-    'image_hash': 'd0e55164c31b55e392a69779169bdb1a7f9f70437570be73ff08e78c',
+    'image_hash': 'caeb6ef9dc9a682dd50b62b7781fb3fbcc7c6e26e53c52835fb8b287',
     'classifier': 'densenet',
   },
   'densenet169': {
-    'image_hash': 'd0e55164c31b55e392a69779169bdb1a7f9f70437570be73ff08e78c',
+    'image_hash': 'caeb6ef9dc9a682dd50b62b7781fb3fbcc7c6e26e53c52835fb8b287',
     'classifier': 'densenet',
   },
   'densenet201': {
-    'image_hash': 'd0e55164c31b55e392a69779169bdb1a7f9f70437570be73ff08e78c',
+    'image_hash': 'caeb6ef9dc9a682dd50b62b7781fb3fbcc7c6e26e53c52835fb8b287',
     'classifier': 'densenet',
   },
   'nasnet_large': {},
@@ -51,7 +51,7 @@ const AvailableModels = {
 async function main(model, subnetTag, driver, network) {
   const _package = await vm.repo({
     image_hash: AvailableModels[model]['image_hash'],
-    min_mem_gib: 0.5,
+    min_mem_gib: 2.0,
     min_storage_gib: 2.0,
   });
 
@@ -60,7 +60,7 @@ async function main(model, subnetTag, driver, network) {
     ctx.send_file(
       path.join(__dirname, `classifiers/${classifier}.py`),
       '/golem/work/classify.py'
-    )    
+    ) 
     for await (let task of tasks) {
       // params.json skeleton:
       // {
@@ -93,27 +93,27 @@ async function main(model, subnetTag, driver, network) {
           'python3 /golem/work/classify.py > /golem/output/log 2>&1;'
         ]
       )
-      let tid = uuidv4()
-      const output_file = `out/${pr.id}.json`;
+      const tid = uuidv4()
+      const output_file = `out/${tid}.json`
       ctx.download_file(
-        `/golem/output/${rid}.json`,
-        path.join(__dirname, `./out/${tid}.json`)
+        `/golem/output/preds.json`,
+        path.join(__dirname, output_file)
       );
       ctx.download_file(
         `/golem/output/log`,
         path.join(__dirname, `./out/${tid}.log`)
       );
-      yield ctx.commit({timeout: dayjs.duration({ seconds: 120 }).asMilliseconds()});
+      yield ctx.commit({timeout: dayjs.duration({ seconds: 120 }).asMilliseconds()})
       // TODO: Check
       // job results are valid // and reject by:
       // task.reject_task(msg = 'invalid file')
-      task.accept_result(output_file);
+      task.accept_result(output_file)
     }
 
-    ctx.log("done");
-    return;
+    ctx.log("done")
+    return
   }
-  const req_path = path.join(__dirname, `./reqs/${model}.json`)
+  const req_path = path.join(__dirname, `../reqs/${model}.json`)
   const reqs = JSON.parse(fs.readFileSync(req_path))['reqs']
   // partition requests into arrays of 16 elements so that each node processes
   // 16 images at most: ~32 mb with max 2mb per input image
@@ -121,12 +121,12 @@ async function main(model, subnetTag, driver, network) {
   const req_chunks = _.chunk(reqs, CHUNK_SIZE)
 
   const timeout = dayjs.duration({ minutes: 6 }).asMilliseconds();
-  await asyncWith(
+  await asyncWith (
     new Executor({
       task_package: _package,
-      max_workers: 8,
+      max_workers: 4,
       timeout: timeout,
-      budget: "8.0",
+      budget: "2.0",
       subnet_tag: subnetTag,
       driver: driver,
       network: network,
@@ -135,19 +135,19 @@ async function main(model, subnetTag, driver, network) {
     async (executor) => {
       for await (let task of executor.submit(
         worker,
-        req_chunks.map((rc) => new Task(rc)
-      ) {
-        console.log("result=", task.result());
+        req_chunks.map((rc) => new Task(rc))
+      )) {
+          console.log("result=", task.result());
       }
-    }
+    }      
   );
   return;
 }
 
 program
   .option("--model <model>", "specify model, e.g. densenet121")
-  .option("--subnet-tag <subnet>", "set subnet name", "devnet-beta.1")
-  .option("--driver <driver>", "payment driver name, for example 'zksync'", "zksync")
+  .option("--subnet-tag <subnet>", "set subnet name", "devnet-beta")
+  .option("--driver <driver>", "payment driver name, for example 'erc20'", "erc20")
   .option("--network <network>", "network name, for example 'rinkeby'", "rinkeby")
   .option("-d, --debug", "output extra debugging");
 program.parse(process.argv);
