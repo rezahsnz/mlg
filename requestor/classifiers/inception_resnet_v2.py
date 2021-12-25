@@ -12,7 +12,7 @@ Models = {
   'inception_resnet_v2': { 
     'class': tf.keras.applications.InceptionResNetV2,
     'preprocess': tf.keras.applications.inception_resnet_v2.preprocess_input,
-    'weights': './weights/inception_resnet_v2_weights_tf_dim_ordering_tf_kernels.h5'
+    'weights': '/opt/weights/inception_resnet_v2_weights_tf_dim_ordering_tf_kernels.h5'
   },
 }
 

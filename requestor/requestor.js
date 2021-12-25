@@ -35,15 +35,15 @@ const AvailableModels = {
   'vgg16': {},
   'vgg19': {},
   'xception': {
-    'image_hash': '962619fd9fedd2b01d2e706c22f9404627fba0d2b5fbf24f38dcd117',
+    'image_hash': '31cac0ac35b468c77654dc35a9cc0f0afb15ad4e188f7dbdbb96a5bc',
     'classifier': 'inception_v3.xception'
   },
   'inception_v3': {
-    'image_hash': '962619fd9fedd2b01d2e706c22f9404627fba0d2b5fbf24f38dcd117',
+    'image_hash': '31cac0ac35b468c77654dc35a9cc0f0afb15ad4e188f7dbdbb96a5bc',
     'classifier': 'inception_v3.xception'
   },
   'inception_resnet_v2': {
-    'image_hash': '58b5ed0784b918f49de34107e6273a38f276b690cc39b956e3fd6935',
+    'image_hash': '000e381cc34a16f3f59cd4fccc9e501a91804987e006353f2d489d66',
     'classifier': 'inception_resnet_v2'
   },
 }

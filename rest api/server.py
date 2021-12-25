@@ -33,10 +33,13 @@ def hello():
               <ul>
                 <li>DenseNet121</li>
                 <li>DenseNet169</li>
-                <li>DenseNet201</li>
-        </ul>
-      <h3>Models under development</h3>
-        <ul>
+                <li>DenseNet201</li><br/>
+                <li>XCeption</li><br/>
+                <li>Inception_ResNet_V2</li><br/>
+                <li>Inception_V3</li>
+              </ul>
+            <h3>Models under development</h3>
+              <ul>
                 <li>ResNet50</li>
                 <li>ResNet101</li>
                 <li>ResNet152</li><br/>
@@ -44,10 +47,7 @@ def hello():
                 <li>ResNet101V2</li>
                 <li>ResNet152V2</li><br/>
                 <li>VGG16</li>
-                <li>VGG19</li><br/>
-                <li>XCeption</li><br/>
-                <li>Inception_V3</li>
-                <li>Inception_ResNet_V2</li>
+                <li>VGG19</li>
               </ul>
               <p>Request a prediction using cURL:  <font color="blue">curl -X POST -F image=@kitten.jpg 'http://185.221.237.140/requestPrediction/[model]'</font> 
                  and then a new request key is generated for you.

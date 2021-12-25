@@ -12,12 +12,12 @@ Models = {
   'inception_v3': { 
     'class': tf.keras.applications.InceptionV3,
     'preprocess': tf.keras.applications.inception_v3.preprocess_input,
-    'weights': './weights/inception_v3_weights_tf_dim_ordering_tf_kernels.h5'
+    'weights': '/opt/weights/inception_v3_weights_tf_dim_ordering_tf_kernels.h5'
   },
   'xception': { 
     'class': tf.keras.applications.Xception,
     'preprocess': tf.keras.applications.xception.preprocess_input,
-    'weights': './weights/xception_weights_tf_dim_ordering_tf_kernels.h5'
+    'weights': '/opt/weights/xception_weights_tf_dim_ordering_tf_kernels.h5'
   },
 }
 
