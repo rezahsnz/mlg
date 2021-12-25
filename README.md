@@ -17,9 +17,9 @@ The following models are planned to be available for predction requests. Since s
 - ResNet152V2  
 - VGG16
 - VGG19  
-- XCeption  
-- Inception_V3  
-- Inception_ResNet_V2  
+- XCeption*  
+- Inception_V3*  
+- Inception_ResNet_V2*  
 
 Note that as of Dec. 23th, the models with * are available to be used.
 
