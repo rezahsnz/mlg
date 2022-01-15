@@ -34,18 +34,18 @@ def hello():
                 <li>DenseNet121</li>
                 <li>DenseNet169</li>
                 <li>DenseNet201</li><br/>
-                <li>XCeption</li><br/>
-                <li>Inception_ResNet_V2</li><br/>
-                <li>Inception_V3</li>
-              </ul>
-            <h3>Models under development</h3>
-              <ul>
                 <li>ResNet50</li>
                 <li>ResNet101</li>
-                <li>ResNet152</li><br/>
+                <li>ResNet152</li>
                 <li>ResNet50V2</li>
                 <li>ResNet101V2</li>
                 <li>ResNet152V2</li><br/>
+                <li>XCeption</li><br/>
+                <li>Inception_ResNet_V2</li><br/>
+                <li>Inception_V3</li>                
+              </ul>
+            <h3>Models under development</h3>
+              <ul>                
                 <li>VGG16</li>
                 <li>VGG19</li>
               </ul>
