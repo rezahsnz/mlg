@@ -26,12 +26,30 @@ const AvailableModels = {
   },
   'nasnet_large': {},
   'nasnet_mobile': {},
-  'resnet50': {},
-  'resnet101': {},
-  'resnet152': {},
-  'resnet50v2': {},
-  'resnet101v2': {},
-  'resnet152v2': {},
+  'resnet50': {
+    'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
+    'classifier': 'resnet'
+  },
+  'resnet101': {
+    'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
+    'classifier': 'resnet'
+  },
+  'resnet152': {
+    'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
+    'classifier': 'resnet'
+  },
+  'resnet50v2': {
+    'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
+    'classifier': 'resnet'
+  },
+  'resnet101v2': {
+    'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
+    'classifier': 'resnet'
+  },
+  'resnet152v2': {
+    'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
+    'classifier': 'resnet'
+  },
   'vgg16': {},
   'vgg19': {},
   'xception': {

@@ -6,22 +6,22 @@ The basic idea is to distribute popular CNNs pre-trained with ImageNet datasets 
 
 ## Available models
 The following models are planned to be available for predction requests. Since some of them have large weight files, it make take some time to get ready to be used.  
-- DenseNet121*
-- DenseNet169*
-- DenseNet201*  
+- DenseNet121
+- DenseNet169
+- DenseNet201  
 - ResNet50
 - ResNet101
 - ResNet152  
 - ResNet50V2
 - ResNet101V2
 - ResNet152V2  
-- VGG16
-- VGG19  
-- XCeption*  
-- Inception_V3*  
-- Inception_ResNet_V2*  
+- VGG16*
+- VGG19 * 
+- XCeption  
+- Inception_V3  
+- Inception_ResNet_V2  
 
-Note that as of Dec. 23th, the models with * are available to be used.
+Note that as of January 15th, the models with * are not available to be used.
 
 ## Batching
 The batching script is invoked at regular times to look for any pending requests. The pending requests are then grouped by their models and divided into chunks of 16 to make sure that the payload(task data) a provider receives is capped at 64mb(with max 2mb per request data for HTTP POST). Grouping followed by request chunks introduces a hierarchy of task paralellization that improves the scalablility of the server while making sure that each node receives enough payload to be worth the time it spends loading the large images. At times of low demand, however, the nodes might not receive enough requests. 
