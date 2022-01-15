@@ -69,8 +69,8 @@ const AvailableModels = {
 async function main(model, subnetTag, driver, network) {
   const _package = await vm.repo({
     image_hash: AvailableModels[model]['image_hash'],
-    min_mem_gib: 2.0,
-    min_storage_gib: 2.0,
+    min_mem_gib: 3.0,
+    min_storage_gib: 4.0,
   });
 
   async function* worker(ctx, tasks) {
