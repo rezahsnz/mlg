@@ -43,9 +43,6 @@ def hello():
                 <li>XCeption</li><br/>
                 <li>Inception_ResNet_V2</li><br/>
                 <li>Inception_V3</li>                
-              </ul>
-            <h3>Models under development</h3>
-              <ul>                
                 <li>VGG16</li>
                 <li>VGG19</li>
               </ul>
