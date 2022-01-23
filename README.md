@@ -15,13 +15,11 @@ The following models are planned to be available for predction requests. Since s
 - ResNet50V2
 - ResNet101V2
 - ResNet152V2  
-- VGG16*
-- VGG19 * 
+- VGG16
+- VGG19 
 - XCeption  
 - Inception_V3  
 - Inception_ResNet_V2  
-
-Note that as of January 15th, the models with * are not available to be used.
 
 ## Batching
 The batching script is invoked at regular times to look for any pending requests. The pending requests are then grouped by their models and divided into chunks of 16 to make sure that the payload(task data) a provider receives is capped at 64mb(with max 2mb per request data for HTTP POST). Grouping followed by request chunks introduces a hierarchy of task paralellization that improves the scalablility of the server while making sure that each node receives enough payload to be worth the time it spends loading the large images. At times of low demand, however, the nodes might not receive enough requests. 

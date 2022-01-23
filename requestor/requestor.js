@@ -50,8 +50,14 @@ const AvailableModels = {
     'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
     'classifier': 'resnet'
   },
-  'vgg16': {},
-  'vgg19': {},
+  'vgg16': {
+    'image_hash': '360898f1a2e7d0962bce2ca62e1ab0e39e89f27f0ccf75d66b8cef4a',
+    'classifier': 'vgg'
+  },
+  'vgg19': {
+    'image_hash': '360898f1a2e7d0962bce2ca62e1ab0e39e89f27f0ccf75d66b8cef4a',
+    'classifier': 'vgg'
+  },
   'xception': {
     'image_hash': '31cac0ac35b468c77654dc35a9cc0f0afb15ad4e188f7dbdbb96a5bc',
     'classifier': 'inception_v3.xception'
