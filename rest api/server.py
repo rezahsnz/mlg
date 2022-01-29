@@ -45,6 +45,8 @@ def hello():
                 <li>Inception_V3</li>                
                 <li>VGG16</li>
                 <li>VGG19</li>
+                <li>NASNet_large</li>
+                <li>NASNet_mobile</li>
               </ul>
               <p>Request a prediction using cURL:  <font color="blue">curl -X POST -F image=@kitten.jpg 'http://185.221.237.140/requestPrediction/[model]'</font> 
                  and then a new request key is generated for you.

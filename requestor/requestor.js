@@ -24,8 +24,14 @@ const AvailableModels = {
     'image_hash': 'caeb6ef9dc9a682dd50b62b7781fb3fbcc7c6e26e53c52835fb8b287',
     'classifier': 'densenet',
   },
-  'nasnet_large': {},
-  'nasnet_mobile': {},
+  'nasnet_large': {
+    'image_hash': 'd4ecd446b169934ac08e74e6ac04a8e92f1ed6817664bf2b46dfbed3',
+    'classifier': 'nasnet',
+  },
+  'nasnet_mobile': {
+    'image_hash': 'd4ecd446b169934ac08e74e6ac04a8e92f1ed6817664bf2b46dfbed3',
+    'classifier': 'nasnet',
+  },
   'resnet50': {
     'image_hash': '870e2fb0f95a6d6152c97d3fe02400aac88f98a8dc523a2ac8cf42b2',
     'classifier': 'resnet'

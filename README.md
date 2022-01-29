@@ -5,7 +5,7 @@
 The basic idea is to distribute popular CNNs pre-trained with ImageNet datasets across Golem provider nodes. Once we have enough images(CNNs) on the board, then we setup an HTTP REST API server that collects predict requests. At regular times, say every 10 minutes, a script is invoked to batch requests and have them sent to the nodes for prediction. Once the requests are fulfilled, the results are recorded on the db and ready to be queried.  
 
 ## Available models
-The following models are planned to be available for predction requests. Since some of them have large weight files, it make take some time to get ready to be used.  
+The following models are available to be used:  
 - DenseNet121
 - DenseNet169
 - DenseNet201  
@@ -17,6 +17,8 @@ The following models are planned to be available for predction requests. Since s
 - ResNet152V2  
 - VGG16
 - VGG19 
+- NASNet_large
+- NASNet_mobile
 - XCeption  
 - Inception_V3  
 - Inception_ResNet_V2  

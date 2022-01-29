@@ -29,3 +29,7 @@ https://storage.googleapis.com/tensorflow/keras-applications/resnet/resnet152v2_
 #vgg 
 https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels.h5
 https://storage.googleapis.com/tensorflow/keras-applications/vgg19/vgg19_weights_tf_dim_ordering_tf_kernels.h5
+
+#nasnet
+https://storage.googleapis.com/tensorflow/keras-applications/nasnet/NASNet-mobile.h5
+https://storage.googleapis.com/tensorflow/keras-applications/nasnet/NASNet-large.h5
