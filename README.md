@@ -29,9 +29,9 @@ The batching script is invoked at regular times to look for any pending requests
 
 ## Invocation
 To ask for a predicttion on some image file, one can make a simple cURL call:  
-`curl -X POST -F image=@kitten.jpg 'http://185.221.237.140/requestPrediction/[model]'`  
+`curl -X POST -F image=@kitten.jpg 'BASEURL/requestPrediction/[model]'`  
 This schedules the request for prediction and a request_id is generated. The Caller can then query for the results using a call like this:  
-`curl -X POST 'http://185.221.237.140/readPrediction/[request-id]'`  
+`curl -X POST 'BASEURL/readPrediction/[request-id]'`  
 A typical result for a previsouly requested prediction is either `null`(as being not picked up yet) or an array of predicted classes.  
 
 
